@@ -1,40 +1,34 @@
 import React, { Component } from "react";
-import { Input, InputLabel } from "@material-ui/core";
-
-const styles = {
-  hidden: {
-    display: "none",
-  },
-  importLabel: {
-    color: "black",
-  },
-};
+import { DropzoneArea } from "material-ui-dropzone";
+import { FILE_UPLOAD_TEXT } from "../constants";
+import { Button } from "@material-ui/core";
 
 class FileUpload extends Component {
   constructor(props) {
     super(props);
-    this.onInputChange = this.onInputChange.bind(this);
+    this.state = {
+      files: [],
+    };
   }
-
-  onInputChange() {
-      alert("clicked on file upload");
+  handleChange(files) {
+    this.setState({
+      files: files,
+    });
   }
   render() {
+      const {files} = this.state;
+      const isDisabled = !files.length > 0 ? true : false;
     return (
       <div>
-        <InputLabel htmlFor="import-button" style={styles.importLabel}>
-          <Input
-            id="import-button"
-            inputProps={{
-              accept:
-                ".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel",
-            }}
-            onChange={this.onInputChange}
-            style={styles.hidden}
-            type="file"
-          />
-          Import Spreadsheet
-        </InputLabel>
+        <DropzoneArea
+          onChange={this.handleChange.bind(this)}
+          dropzoneText={FILE_UPLOAD_TEXT}
+          showPreviewsInDropzone={false}
+          showFileNames={true}
+        />
+        <Button className="uploadButton" disabled = {isDisabled} variant="contained" color="primary">
+          Submit
+        </Button>
       </div>
     );
   }

@@ -44,3 +44,28 @@ code {
 .MuiRadio-colorSecondary.Mui-checked {
   color: #4544a5 !important;
 }
+
+.MuiDropzoneArea-text {
+    position: absolute;
+    top: 80px;
+    right: 50px;
+}
+
+.MuiDropzoneArea-icon {
+    color: rgba(130, 130, 130, 0.87) !important;
+    position: absolute !important;
+    top: 55px;
+    right: 148px;
+}
+
+.MuiButton-containedPrimary {
+  color: #fff;
+  background-color: #2e6ec8 !important;
+  position: relative;
+  right: -140px;
+  top: -100px;
+}
+
+.chipPadding {
+  margin: 5px;
+}

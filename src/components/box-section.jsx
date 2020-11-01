@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  AppBar,
+  Button,
   Grid,
   Container,
   Box,
@@ -9,31 +9,37 @@ import {
 } from "@material-ui/core";
 import "../index.css";
 
-const BoxSection = (props) => {
-  const { title, getFormData, isFileUpload, handleFileUpload } = props;
-  return (
-    <React.Fragment>
-      <Grid container>
-        <Box boxShadow={2} bgcolor="background.paper" style={{ width: "100%" }}>
-          <div className="boxHeader" position="static">
-            <span>{title}</span>
-          </div>
-          <div>
-            <Grid container spacing={3}>
-              <Grid className="formData" item xs={6}>
-                {getFormData()}
-              </Grid>
-              {isFileUpload && (
-                <Grid item xs={6}>
-                  {handleFileUpload()}
+class BoxSection extends React.Component {
+  render() {
+    const { title, getFormData, isFileUpload, handleFileUpload } = this.props;
+    return (
+      <React.Fragment>
+        <Grid container>
+          <Box
+            boxShadow={2}
+            bgcolor="background.paper"
+            style={{ width: "100%" }}
+          >
+            <div className="boxHeader" position="static">
+              <span>{title}</span>
+            </div>
+            <div>
+              <Grid container spacing={3}>
+                <Grid className="formData" item xs={isFileUpload ? 6 : 7}>
+                  {getFormData()}
                 </Grid>
-              )}
-            </Grid>
-          </div>
-        </Box>
-      </Grid>
-    </React.Fragment>
-  );
-};
+                {isFileUpload && (
+                  <Grid item xs={5}>
+                    {handleFileUpload()}
+                  </Grid>
+                )}
+              </Grid>
+            </div>
+          </Box>
+        </Grid>
+      </React.Fragment>
+    );
+  }
+}
 
 export default BoxSection;
