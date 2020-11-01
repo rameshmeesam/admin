@@ -1,17 +1,15 @@
 import React from "react";
 import {
-  Button,
   Grid,
-  Container,
-  Box,
-  Typography,
-  Paper,
+  Box
 } from "@material-ui/core";
 import "../index.css";
+import { connect } from 'react-redux';
 
 class BoxSection extends React.Component {
   render() {
-    const { title, getFormData, isFileUpload, handleFileUpload } = this.props;
+    const { title, getFormData, isFileUpload, handleFileUpload, files } = this.props;
+    console.info("hell0 RAM" + JSON.stringify(files));
     return (
       <React.Fragment>
         <Grid container>
@@ -42,4 +40,15 @@ class BoxSection extends React.Component {
   }
 }
 
-export default BoxSection;
+const mapStateToProps = (state /*, ownProps*/) => {
+    return {
+      files: state.files
+    }
+  }
+  
+  const mapDispatchToProps = {};
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(BoxSection)

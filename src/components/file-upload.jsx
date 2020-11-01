@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { DropzoneArea } from "material-ui-dropzone";
 import { FILE_UPLOAD_TEXT } from "../constants";
 import { Button } from "@material-ui/core";
+import { uploadFiles }  from "../actions";
+import { connect } from 'react-redux';
 
 class FileUpload extends Component {
   constructor(props) {
@@ -11,9 +13,11 @@ class FileUpload extends Component {
     };
   }
   handleChange(files) {
+      const {uploadFiles} = this.props;
     this.setState({
       files: files,
     });
+    uploadFiles(files)
   }
   render() {
       const {files} = this.state;
@@ -34,4 +38,15 @@ class FileUpload extends Component {
   }
 }
 
-export default FileUpload;
+const mapStateToProps = (state /*, ownProps*/) => {
+    return {
+      files: state.files
+    }
+  }
+  
+  const mapDispatchToProps = { uploadFiles }
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(FileUpload)
