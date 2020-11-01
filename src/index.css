@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.MuiAppBar-colorPrimary {
+  color: #fff;
+  background-color:  #2e6fc8 !important;
+}
+
+.MuiAppBar-root {
+  height: 28px !important;
+}
+
+.mainHeader {
+  padding: 10px 0px 10px 0px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.boxWrapper {
+  padding-bottom: 10px;
+}
+
+.boxHeader {
+  background: #2e6fc8;
+  color: white;
+  padding: 10px 0px 10px 10px;
+}
+
+.MuiGrid-spacing-xs-3 {
+  margin: 0px !important;
+}
+
+.MuiRadio-colorSecondary.Mui-checked {
+  color: #4544a5 !important;
+}
