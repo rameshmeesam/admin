@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "id": "1",
+      "fileType": "delta",
+      "files": {
+        "path": "./test"
+      },
+      "user": "john"
+    },
+    {
+      "fileType": "midPoint File",
+      "files": [
+        {
+          "path": "exception-api.json"
+        }
+      ],
+      "id": "boKi2NJ"
+    },
+    {
+      "fileType": "delta File",
+      "files": [
+        {
+          "path": "exception-api.json"
+        }
+      ],
+      "id": "JXkeKU6"
+    },
+    {
+      "id": "2",
+      "fileType": "midPoint File",
+      "files": [
+        {
+          "path": "exception-api.json"
+        }
+      ]
+    }
+  ]
+}

@@ -5,11 +5,12 @@ import {
 } from "@material-ui/core";
 import "../index.css";
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 class BoxSection extends React.Component {
   render() {
-    const { title, getFormData, isFileUpload, handleFileUpload, files } = this.props;
-    console.info("hell0 RAM" + JSON.stringify(files));
+    const { title, getFormData, isFileUpload, handleFileUpload, files} = this.props;
+    console.info(`Upload Files Info ${JSON.stringify(files)}`);
     return (
       <React.Fragment>
         <Grid container>
@@ -40,9 +41,29 @@ class BoxSection extends React.Component {
   }
 }
 
-const mapStateToProps = (state /*, ownProps*/) => {
+BoxSection.propTypes = {
+    title: PropTypes.string,
+    getFormData: PropTypes.func,
+    isFileUpload: PropTypes.bool,
+    handleFileUpload: PropTypes.func,
+    files: PropTypes.array,
+    onSubmit: PropTypes.func
+
+};
+BoxSection.defaultProps = {
+    title: "",
+    getFormData: ()=> {},
+    isFileUpload: false,
+    handleFileUpload: ()=> {},
+    files: ()=> {},
+    onSubmit: ()=> {}
+};
+
+
+const mapStateToProps = (state) => {
     return {
-      files: state.files
+      files: state.files,
+      formData: state.files,
     }
   }
   

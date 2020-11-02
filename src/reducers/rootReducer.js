@@ -3,6 +3,7 @@ import ACTIONS from "../actions";
 
 export const initialState = {
   files: [],
+  fileType: "Associate File"
 };
 
 export const rootReducer = (state = initialState, action = {}) => {
@@ -13,6 +14,13 @@ export const rootReducer = (state = initialState, action = {}) => {
         files: action.files
       };
     }
+
+    case ACTIONS.SET_FILE_TYPE: {
+        return {
+          ...state,
+          fileType: action.fileType
+        };
+      }
 
     default: {
       return state;

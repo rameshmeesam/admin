@@ -11,6 +11,7 @@ class FileUpload extends Component {
     this.state = {
       files: [],
     };
+    this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
   handleChange(files) {
       const {uploadFiles} = this.props;
@@ -18,6 +19,11 @@ class FileUpload extends Component {
       files: files,
     });
     uploadFiles(files)
+  }
+
+  handleOnSubmit() {
+    const {onSubmit, files, fileType} = this.props;
+    onSubmit(fileType, files);
   }
   render() {
       const {files} = this.state;
@@ -30,7 +36,7 @@ class FileUpload extends Component {
           showPreviewsInDropzone={false}
           showFileNames={true}
         />
-        <Button className="uploadButton" disabled = {isDisabled} variant="contained" color="primary">
+        <Button className="uploadButton" disabled = {isDisabled} variant="contained" color="primary" onClick={this.handleOnSubmit}>
           Submit
         </Button>
       </div>
@@ -40,7 +46,8 @@ class FileUpload extends Component {
 
 const mapStateToProps = (state /*, ownProps*/) => {
     return {
-      files: state.files
+      files: state.files,
+      fileType: state.fileType
     }
   }
   
