@@ -29,7 +29,6 @@ class MainWrapper extends React.Component {
     }
   };
     axios.post('http://localhost:3000/files', {
-        id: "2",
         fileType: viewType,
         files: data
       }, axiosConfig)

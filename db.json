@@ -9,13 +9,13 @@
       "user": "john"
     },
     {
+      "id": "2",
       "fileType": "midPoint File",
       "files": [
         {
           "path": "exception-api.json"
         }
-      ],
-      "id": "boKi2NJ"
+      ]
     },
     {
       "fileType": "delta File",
@@ -24,16 +24,25 @@
           "path": "exception-api.json"
         }
       ],
-      "id": "JXkeKU6"
+      "id": "2Oa5Nu1"
     },
     {
-      "id": "2",
-      "fileType": "midPoint File",
+      "fileType": "delta File",
       "files": [
         {
           "path": "exception-api.json"
         }
-      ]
+      ],
+      "id": "9i6to2p"
+    },
+    {
+      "fileType": "delta File",
+      "files": [
+        {
+          "path": "exception-api.json"
+        }
+      ],
+      "id": "AGmAyx5"
     }
   ]
 }
