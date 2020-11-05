@@ -1,15 +1,22 @@
 import React from "react";
-import {
-  Grid,
-  Box
-} from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 import "../index.css";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Button } from "@material-ui/core";
+import Switch from "@material-ui/core/Switch";
 
 class BoxSection extends React.Component {
   render() {
-    const { title, getFormData, isFileUpload, handleFileUpload, files} = this.props;
+    const {
+      title,
+      getFormData,
+      isFileUpload,
+      handleFileUpload,
+      showAppBarSubmit,
+      files,
+      showSwitch
+    } = this.props;
     console.info(`Upload Files Info ${JSON.stringify(files)}`);
     return (
       <React.Fragment>
@@ -20,7 +27,28 @@ class BoxSection extends React.Component {
             style={{ width: "100%" }}
           >
             <div className="boxHeader" position="static">
-              <span>{title}</span>
+              <span className="appBarTitle">{title}</span>
+              {showSwitch && (
+              <span className="swithPostion">
+                <Switch
+                  onChange={()=>{}}
+                  name="checkedB"
+                  color="primary"
+                />
+              </span>
+              )}
+              <span className="appBarRight">
+                {showAppBarSubmit && (
+                  <Button
+                    className="uploadButton"
+                    variant="contained"
+                    color="primary"
+                    onClick={this.handleOnSubmit}
+                  >
+                    Submit
+                  </Button>
+                )}
+              </span>
             </div>
             <div>
               <Grid container spacing={3}>
@@ -42,34 +70,33 @@ class BoxSection extends React.Component {
 }
 
 BoxSection.propTypes = {
-    title: PropTypes.string,
-    getFormData: PropTypes.func,
-    isFileUpload: PropTypes.bool,
-    handleFileUpload: PropTypes.func,
-    files: PropTypes.array,
-    onSubmit: PropTypes.func
-
+  title: PropTypes.string,
+  getFormData: PropTypes.func,
+  isFileUpload: PropTypes.bool,
+  handleFileUpload: PropTypes.func,
+  files: PropTypes.array,
+  onSubmit: PropTypes.func,
+  showAppBarSubmit: PropTypes.bool,
+  showSwitch: PropTypes.bool
 };
 BoxSection.defaultProps = {
-    title: "",
-    getFormData: ()=> {},
-    isFileUpload: false,
-    handleFileUpload: ()=> {},
-    files: ()=> {},
-    onSubmit: ()=> {}
+  title: "",
+  getFormData: () => {},
+  isFileUpload: false,
+  handleFileUpload: () => {},
+  files: () => {},
+  onSubmit: () => {},
+  showAppBarSubmit: true,
+  showSwitch: false
 };
 
-
 const mapStateToProps = (state) => {
-    return {
-      files: state.files,
-      formData: state.files,
-    }
-  }
-  
-  const mapDispatchToProps = {};
-  
-  export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(BoxSection)
+  return {
+    files: state.files,
+    formData: state.files,
+  };
+};
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoxSection);

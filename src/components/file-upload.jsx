@@ -29,7 +29,7 @@ class FileUpload extends Component {
       const {files} = this.state;
       const isDisabled = !files.length > 0 ? true : false;
     return (
-      <div>
+      <div id="dropzone">
         <DropzoneArea
           onChange={this.handleChange.bind(this)}
           dropzoneText={FILE_UPLOAD_TEXT}

@@ -6,7 +6,8 @@ import RadioButtonsGroup from "../components/radio-group";
 import FileUpload from "../components/file-upload";
 import FileDownload from "../components/file-download";
 import PropTypes from "prop-types";
-import axios from "axios";
+import AppTimeLineForm from "../components/app-timeline-form";
+
 const superagent = require('superagent')
 
 class MainWrapper extends React.Component {
@@ -16,6 +17,7 @@ class MainWrapper extends React.Component {
     this.handleFileUpload = this.handleFileUpload.bind(this);
     this.displayFileDownload = this.displayFileDownload.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.displayAppTimeline = this.displayAppTimeline.bind(this);
   }
 
   getFormData() {
@@ -43,6 +45,10 @@ class MainWrapper extends React.Component {
     return <FileDownload />;
   }
 
+  displayAppTimeline() {
+    return <AppTimeLineForm />
+  }
+
   render() {
     const { heading } = this.props;
     return (
@@ -55,6 +61,16 @@ class MainWrapper extends React.Component {
             isFileUpload={true}
             handleFileUpload = {this.handleFileUpload}
             onSubmit = {this.onSubmit}
+            showAppBarSubmit = {false}
+          ></BoxSection>
+        </div>
+
+        <div className="boxWrapper">
+          <BoxSection
+            title="Application Timelines"
+            getFormData={this.displayAppTimeline}
+            isFileUpload={false}
+            showSwitch = {true}
           ></BoxSection>
         </div>
 

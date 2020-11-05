@@ -34,7 +34,8 @@ code {
 .boxHeader {
   background: #2e6fc8;
   color: white;
-  padding: 10px 0px 10px 10px;
+  /* padding: 10px 0px 10px 10px; */
+  height: 34px;
 }
 
 .MuiGrid-spacing-xs-3 {
@@ -42,23 +43,23 @@ code {
 }
 
 .MuiRadio-colorSecondary.Mui-checked {
-  color: #4544a5 !important;
+  color: #2e6dc8 !important;  
 }
 
-.MuiDropzoneArea-text {
+#dropzone .MuiDropzoneArea-text {
     position: absolute;
     top: 80px;
     right: 50px;
 }
 
-.MuiDropzoneArea-icon {
+#dropzone .MuiDropzoneArea-icon {
     color: rgba(130, 130, 130, 0.87) !important;
     position: absolute !important;
     top: 55px;
     right: 148px;
 }
 
-.MuiButton-containedPrimary {
+#dropzone .MuiButton-containedPrimary {
   color: #fff;
   background-color: #2e6ec8 !important;
   position: relative;
@@ -68,4 +69,88 @@ code {
 
 .chipPadding {
   margin: 5px;
+}
+
+.appBarRight {
+  float: right;
+  margin-right: 32px;
+  margin-top: 4px;
+}
+
+.appBarRight .MuiButton-containedPrimary {
+  color: #2e6dc8;
+  background-color: #ffffff;
+}
+
+.appBarRight  .MuiButton-containedPrimary:hover {
+  background-color: #e5e6ed;
+}
+
+.appBarRight .MuiButton-root {
+  color: rgba(0, 0, 0, 0.87);
+  padding: 6px 16px;
+  font-size: 0.7rem !important;
+  min-width: 70px;
+  box-sizing: border-box;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  /* font-family: "Roboto", "Helvetica", "Arial", sans-serif; */
+  font-weight: 500;
+  line-height: 1.4 !important
+}
+
+.MuiButton-root {
+  border-radius: 12px !important;
+}
+
+.appBarTitle {
+  position: relative;
+  top: 7px;
+  left: 17px;
+  font-weight: 600;
+}
+
+.downloadArrowButton {
+  position: relative;
+  top: 3px;
+  fill: #2e6dc8 !important  ;
+}
+ 
+.MuiIconButton-label {
+  width: 100%;
+  display: flex;
+  align-items: inherit;
+  justify-content: inherit;
+  margin-top: 10px;
+}
+
+.inputLabel {
+  padding: 0px 10px 0px 0px;
+}
+.formWrapper {
+  padding-bottom: 10px;
+}
+
+.pillarLead {
+  padding-left: 52px;
+}
+
+.HRBP {
+  padding-left: 81px;
+}
+
+.hrbpDirector {
+  padding-left: 22px;
+}
+
+.MuiSwitch-colorPrimary.Mui-checked {
+  color: #fcfcff;
+}
+
+.MuiSwitch-thumb {
+  position: absolute;
+}
+
+.swithPostion {
+  position: absolute;
+  right: 400px;
 }
