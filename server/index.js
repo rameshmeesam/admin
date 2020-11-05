@@ -5,7 +5,8 @@ const cors = require('cors')
 const path = require('path');
 const multer  = require('multer');
 
-const port = 3000;
+//const api = require('./routes/api');
+const port = 3001;
 
 const app = express();
 app.use(cors())
@@ -22,7 +23,13 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + path.extname(file.originalname));
     }
 });
-
+/*const fileFilter = (req, file, cb) => {
+    if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png') {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+}*/
 const upload = multer({ storage: storage});
 
 app.post('/upload', upload.array('files',100), (req, res, next) => {
@@ -34,6 +41,10 @@ app.post('/upload', upload.array('files',100), (req, res, next) => {
         console.error(error);
     }
 });
+
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist/index.html'));
+// });
 
 app.listen(port, function(){
     console.log("Server running on localhost:" + port);

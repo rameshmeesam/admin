@@ -7,6 +7,7 @@ import FileUpload from "../components/file-upload";
 import FileDownload from "../components/file-download";
 import PropTypes from "prop-types";
 import axios from "axios";
+const superagent = require('superagent')
 
 class MainWrapper extends React.Component {
   constructor(props) {
@@ -22,21 +23,15 @@ class MainWrapper extends React.Component {
   }
 
   onSubmit(viewType, data){
-   let axiosConfig = {
-    headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-        "Access-Control-Allow-Origin": "*",
-    }
-  };
-    axios.post('http://localhost:3000/files', {
-        fileType: viewType,
-        files: data
-      }, axiosConfig)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
+      const req = superagent.post('http://localhost:3001/upload');
+      req.attach("files", data[0]);
+      req.end((err, res) => {
+        if(err){
+        console.log(err);
+        }else {
+          console.log(res);
+          alert("files uploaded successfully");
+        }
       });
 }
 
